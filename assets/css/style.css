@@ -547,14 +547,36 @@ footer {
 .footer-column ul li a:hover {
   color: var(--white-color);
 }
+.social-icons {
+      display: flex;
+      gap: 15px;
+    }
 
-.footer-bottom {
-  text-align: center;
-  border-top: 1px solid #333;
-  margin-top: 2rem;
-  padding-top: 1rem;
-  font-size: 0.9rem;
-  color: #999;
+    .social-icons a img {
+      width: 30px;
+      height: 30px;
+      filter: invert(100%);
+      transition: 0.3s;
+    }
+
+    .social-icons a img:hover {
+      filter: invert(40%) sepia(100%) saturate(500%) hue-rotate(330deg);
+    }
+
+    .footer-bottom {
+      width: 100%;
+      text-align: center;
+      margin-top: 40px;
+      font-size: 0.9rem;
+      color: #ccc;
+}
+   .footer-bottom {
+     text-align: center;
+     border-top: 1px solid #333;
+      margin-top: 2rem;
+      padding-top: 1rem;
+      font-size: 0.9rem;
+      color: #999;
 }
 
 /* ===========================
