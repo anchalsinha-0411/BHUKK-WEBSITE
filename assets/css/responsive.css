@@ -1,285 +1,341 @@
-/* ===========================
-   responsive.css
-   Responsive rules for BHUKK
-   =========================== */
+/* ==========================================
+   BHUKK Responsive Styles
+   ========================================== */
 
-/* --------- Generic small fixes (applies to many sizes) --------- */
-img, video {
-  max-width: 100%;
-  height: auto;
-  display: block;
+/* ===== Base Utility ===== */
+:root {
+  --primary-color: #c1121f;
+  --text-dark: #111;
+  --text-light: #f8f8f8;
 }
 
-/* Make sure sections start below fixed navbar on small screens */
+html,
 body {
-  padding-top: 72px; /* matches navbar height; adjust if navbar height changes */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
-/* ---------- Large tablets / small desktops ---------- */
-/* Up to 1024px wide */
+/* ==============================
+   Responsive Navbar Adjustments
+   ============================== */
+
 @media (max-width: 1024px) {
-  /* NAV */
-  .logo img { height: 44px; }
-  .logo-text { font-size: 1.45rem; }
-  .nav-links { gap: 1.25rem; }
-
-  /* HERO */
-  .hero-content h1 { font-size: 2.4rem; }
-  .hero-content p  { font-size: 1.05rem; }
-
-  /* HOW IT WORKS */
-  .how-container { gap: 2rem; }
-  .how-image img { width: 300px; }
-
-  /* STOCK */
-  .stock-card { width: 210px; }
-
-  /* PARTNER HERO */
-  .partner-hero-content h1 { font-size: 2.2rem; }
-}
-
-/* ---------- Tablet portrait & large phones ---------- */
-/* Up to 768px wide */
-@media (max-width: 768px) {
-  /* NAV: stack elements & slightly reduce padding */
   .glass-nav {
-    padding: 0.75rem 1rem;
-    backdrop-filter: blur(12px);
+    padding: 0.8rem 1.5rem;
   }
-
-  .logo img { height: 40px; margin-right: 8px; }
-  .logo-text { font-size: 1.25rem; }
 
   .nav-links {
-    gap: 1rem;
-    /* make nav links smaller so they fit on typical tablet widths */
-    font-size: 0.95rem;
+    gap: 1.2rem;
   }
 
-  /* HERO: reduce vertical padding and ensure video covers */
-  #hero {
-    height: 70vh;
-    padding: 1.5rem 1rem;
+  .glass-nav .logo img {
+    height: 45px;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    position: fixed;
+    top: 70px;
+    right: -100%;
+    background: rgba(15, 15, 15, 0.95);
+    backdrop-filter: blur(15px);
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 2rem 0;
+    width: 60%;
+    height: calc(100vh - 70px);
+    transition: right 0.4s ease;
+    z-index: 999;
   }
 
-  .hero-content h1 {
-    font-size: 2rem;
-    line-height: 1.15;
+  .nav-links.active {
+    right: 0;
+  }
+
+  .nav-toggle {
+    display: block;
+    cursor: pointer;
+  }
+
+  .nav-toggle span {
+    background: #fff;
+    height: 3px;
+    width: 25px;
+    margin: 4px;
+    display: block;
+    border-radius: 3px;
+    transition: 0.3s;
+  }
+
+  .glass-nav .logo-text {
+    font-size: 1.3rem;
+  }
+}
+
+/* ==============================
+   HERO SECTION (Responsive)
+   ============================== */
+
+@media (max-width: 1024px) {
+  #hero h1 {
+    font-size: 2.3rem;
   }
 
   .hero-content p {
     font-size: 1rem;
+    padding: 0 1rem;
   }
 
-  /* DOWNLOAD BUTTONS larger, touch-friendly */
-  .store-btn {
-    padding: 0.9rem 1.4rem;
-    font-size: 1rem;
+  .store-btn.dark img {
+    height: 55px;
   }
 
-  .store-btn img {
-    width: 36px;
-    height: 36px;
+  .primary-download-btn {
+    padding: 0.9rem 1.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  #hero {
+    height: 90vh;
   }
 
-  /* HOW IT WORKS: stack but keep app mockup visible */
+  .hero-content h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero-content p {
+    font-size: 0.95rem;
+  }
+
+  .download-btns {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .store-btn.dark img {
+    height: 50px;
+  }
+}
+
+/* ==============================
+   HOW IT WORKS SECTION
+   ============================== */
+
+@media (max-width: 992px) {
+  .how-container {
+    gap: 2rem;
+  }
+
+  .how-image img {
+    width: 300px;
+  }
+
+  .how-steps .step {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
   .how-container {
     flex-direction: column;
-    align-items: center;
     text-align: center;
-    gap: 1.5rem;
   }
 
-  .how-image img { width: 260px; border-radius: 16px; }
+  .how-image img {
+    width: 260px;
+    margin-bottom: 1.5rem;
+  }
 
   .how-steps {
-    width: 100%;
-    min-width: 0;
+    text-align: center;
   }
 
-  /* STOCK GRID: 2 columns */
-  .stock-grid {
+  .how-steps .step {
+    margin: 0 auto 1rem;
+    max-width: 90%;
+  }
+}
+
+/* ==============================
+   EXPLORE PAGE GRID
+   ============================== */
+
+@media (max-width: 1200px) {
+  .collection-grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .collection-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     gap: 1rem;
-    justify-content: center;
   }
 
-  .stock-card {
-    width: calc(50% - 16px); /* two cards per row */
-  }
-
-  /* Make stock images slightly shorter on mobile */
-  .stock-card img {
+  .collection-card img {
     height: 180px;
   }
 
-  /* APP PREVIEW: stack and center */
-  .app-preview-container {
-    max-width: 720px;
-    padding: 0 1rem;
-    flex-direction: column-reverse;
-    gap: 1.25rem;
+  .collection-card h3 {
+    font-size: 1rem;
   }
 
-  .app-mockup-img { width: 220px; }
-
-  /* PARTNER HERO: less height so CTA visible without too much scroll */
-  #partner-hero { height: 75vh; }
-  .partner-hero-content h1 { font-size: 1.9rem; }
-
-  /* PRIVACY: reduce container padding */
-  .privacy-container { padding: 2rem; }
-}
-
-/* ---------- Small phones ---------- */
-/* Up to 576px wide */
-@media (max-width: 576px) {
-  /* NAV: reduce tracking and gaps */
-  .glass-nav {
-    padding: 0.6rem 0.8rem;
-  }
-
-  .logo img { height: 36px; }
-  .logo-text { font-size: 1.05rem; }
-
-  .nav-links {
-    gap: 0.75rem;
+  .collection-card p {
     font-size: 0.9rem;
   }
+}
 
-  /* HERO: compact header */
-  #hero { height: 62vh; }
-  .hero-content h1 { font-size: 1.6rem; }
-  .hero-content p  { font-size: 0.95rem; }
+/* ==============================
+   PARTNERS PAGE
+   ============================== */
 
-  /* DOWNLOAD BUTTONS: stack vertically with full width */
-  .download-buttons {
+@media (max-width: 992px) {
+  #partners-hero {
+    height: 70vh;
+  }
+
+  #partners-hero h1 {
+    font-size: 2rem;
+  }
+
+  .partner-form {
+    width: 80%;
+  }
+}
+
+@media (max-width: 768px) {
+  .partner-info {
     flex-direction: column;
-    align-items: center;
-  }
-
-  .store-btn {
-    width: 85%;
-    justify-content: center;
-    padding: 0.9rem;
-    font-size: 0.98rem;
-  }
-
-  .store-btn img { width: 34px; height: 34px; }
-
-  /* HOW IT WORKS: single column, larger spacing */
-  .how-container {
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-  .how-image img { width: 220px; }
-
-  /* STOCK GRID: single column (mobile-friendly scroller feel) */
-  .stock-card {
-    width: 92%;
-    margin: 0 auto;
-  }
-
-  .stock-card img { height: 200px; object-position: center; }
-
-  /* APP PREVIEW: smaller image */
-  .app-mockup-img { width: 200px; }
-
-  /* Partner hero: make CTA easily tappable */
-  .partner-hero-content h1 { font-size: 1.6rem; }
-  .partner-btn { padding: 0.95rem 1.25rem; width: 85%; }
-
-  /* Footer: reduce padding and stack */
-  footer {
-    padding: 1rem;
     text-align: center;
   }
 
-  .footer-logo { height: 60px; margin-bottom: 0.5rem; }
-}
-
-/* ---------- Accessibility / High contrast tweaks ---------- */
-/* If user has prefers-reduced-motion, stop floating and animations */
-@media (prefers-reduced-motion: reduce) {
-  .app-mockup-img,
-  .hero-video,
-  .how-image img {
-    animation: none !important;
-    transition: none !important;
-  }
-}
-
-/* ---------- Utility helpers for responsive content ---------- */
-/* Make embedded videos & iframes responsive */
-.responsive-media {
-  position: relative;
-  padding-bottom: 56.25%; /* 16:9 */
-  height: 0;
-  overflow: hidden;
-}
-
-.responsive-media iframe,
-.responsive-media video {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-/* Reduce hero overlay intensity on small screens so text contrast remains */
-@media (max-width: 768px) {
-  .overlay, .partner-hero-overlay, .explore-overlay {
-    background: rgba(0,0,0,0.45);
-  }
-}
-
-/* If navbar items overflow, make links collapse into stacked menu (non-JS fallback) */
-@media (max-width: 480px) {
-  .nav-links {
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-    background: rgba(0,0,0,0.04);
-    padding: 0.6rem;
-    border-radius: 8px;
-    position: absolute;
-    right: 10px;
-    top: 60px;
-    z-index: 1100;
-  }
-}
-
-/* ---------- Final small fixes ---------- */
-/* Ensure partner form inputs stretch on small screens */
-@media (max-width: 768px) {
-  #partner-form form {
-    width: 95%;
-    padding: 0;
+  .partner-info img {
+    width: 280px;
+    margin-bottom: 1.5rem;
   }
 
-  #partner-form input,
-  #partner-form textarea {
+  .partner-form input,
+  .partner-form textarea {
     width: 100%;
   }
 }
 
-/* Ensure privacy container margin below fixed nav on small screens */
-@media (max-width: 768px) {
-  #privacy-policy { margin-top: 90px; }
-}
-@media (max-width: 768px) {
-  .footer-container {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
+/* ==============================
+   APP MOCKUP SECTION
+   ============================== */
+
+@media (max-width: 992px) {
+  .mockup-container {
+    gap: 2rem;
+  }
+
+  .mockup-text h2 {
+    font-size: 2rem;
+  }
+
+  .mockup-image img {
+    width: 320px;
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
+  .mockup-container {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+
+  .mockup-text {
+    text-align: center;
+  }
+
+  .mockup-image img {
+    width: 270px;
+    margin-bottom: 2rem;
+  }
+
+  .mockup-text h2 {
+    font-size: 1.7rem;
+  }
+
+  .primary-download-btn {
+    padding: 0.8rem 1.6rem;
+    font-size: 0.95rem;
+  }
+}
+
+/* ==============================
+   FOOTER SECTION
+   ============================== */
+
+@media (max-width: 992px) {
+  footer {
+    padding: 3rem 1.5rem;
+  }
+
+  .footer-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .footer-logo img {
+    width: 80px;
+  }
+}
+
+@media (max-width: 768px) {
   .footer-container {
     grid-template-columns: 1fr;
     text-align: center;
   }
 
-  .footer-column h3 {
-    margin-top: 1rem;
+  .footer-logo img {
+    width: 100px;
+    margin: 0 auto 1rem;
+  }
+
+  .social-links {
+    justify-content: center;
+  }
+
+  footer p {
+    font-size: 0.85rem;
+  }
+}
+
+/* ==============================
+   SCROLL TO TOP BUTTON (if any)
+   ============================== */
+
+@media (max-width: 768px) {
+  #scroll-top {
+    right: 15px;
+    bottom: 15px;
+    padding: 0.6rem 0.7rem;
+  }
+}
+@media (max-width: 992px) {
+  .docs-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .docs-container .doc-card:nth-child(5) {
+    max-width: 80%;
+  }
+}
+
+@media (max-width: 768px) {
+  .docs-container {
+    grid-template-columns: 1fr;
+  }
+
+  .docs-container .doc-card:nth-child(5) {
+    grid-column: auto;
+    max-width: 100%;
   }
 }

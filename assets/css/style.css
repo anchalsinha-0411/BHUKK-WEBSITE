@@ -2,7 +2,6 @@
    BHUKK WEBSITE MASTER CSS
    =========================== */
 
-/* ---------- GLOBAL RESET ---------- */
 * {
   margin: 0;
   padding: 0;
@@ -26,113 +25,70 @@ html, body {
 }
 
 /* ===========================
-   NAVBAR (GLASSY + BOLD)
+   GLASSY NAVBAR
    =========================== */
-
-
 .glass-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: fixed; /* stays visible even when scrolling */
-  top: 0;
-  width: 100%;
-  padding: 1rem 2rem;
-  background: rgba(255, 255, 255, 0.25); /* slightly more solid */
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
-  z-index: 1000;
-  transition: background 0.3s ease, backdrop-filter 0.3s ease;
-}
-
-/* Navbar link colors for contrast */
-.glass-nav .nav-links a,
-.glass-nav .logo-text {
-  color: #fff;
-  font-weight: 700;
-  text-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
-}
-
-/* Add a subtle gradient behind the top area of every hero section */
-section[id*="hero"]::before {
-  content: "";
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 160px; /* height of gradient zone */
-  background: linear-gradient(
-    rgba(255, 255, 255, 0.7),
-    rgba(255, 255, 255, 0)
-  );
-  z-index: 2;
-}
-
-
-.logo-link {
+  padding: 1rem 3rem;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  text-decoration: none;
+  background: rgba(10, 10, 10, 0.55);
+  backdrop-filter: blur(15px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
 }
 
-.logo img {
+.glass-nav.sticky {
+  background: rgba(15, 15, 15, 0.8);
+  backdrop-filter: blur(20px);
+}
+
+.glass-nav .logo img {
   height: 50px;
-  width: auto;
-  margin-right: 10px;
-  transition: transform 0.3s ease;
+  border-radius: 8px;
 }
 
-.logo img:hover {
-  transform: scale(1.05);
-}
-
-.logo-text {
-  font-size: 1.7rem;
-  font-weight: 800;
-  letter-spacing: 1px;
-  color: var(--white-color);
-  text-transform: uppercase;
-  transition: color 0.3s ease;
-}
-
-.logo-text:hover {
-  color: #ffcccc;
+.glass-nav .logo-text {
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-left: 0.6rem;
 }
 
 .nav-links {
-  list-style: none;
   display: flex;
   gap: 2rem;
+  list-style: none;
 }
 
 .nav-links a {
-  color: var(--white-color);
-  font-weight: 700;
+  color: #f1f1f1;
   text-decoration: none;
-  letter-spacing: 0.5px;
-  transition: all 0.3s ease;
+  font-weight: 500;
+  transition: color 0.3s ease;
 }
 
-.nav-links a:hover {
-  color: #ffcccc;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--primary-color);
 }
 
 /* ===========================
-   HERO SECTION (VIDEO + TRANSPARENT BUTTONS)
+   HERO SECTION
    =========================== */
 
 #hero {
   position: relative;
   height: 100vh;
-  overflow: hidden;
   display: flex;
-  align-items: center;
   justify-content: center;
-  text-align: center;
-  color: var(--white-color);
+  align-items: center;
+  color: #fff;
+  overflow: hidden;
 }
 
 .hero-video {
@@ -145,63 +101,80 @@ section[id*="hero"]::before {
   z-index: 0;
 }
 
-.overlay {
+.hero-overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.55);
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.5),
+    rgba(0, 0, 0, 0.8)
+  );
   z-index: 1;
 }
 
 .hero-content {
   position: relative;
   z-index: 2;
+  text-align: center;
   max-width: 700px;
-  padding: 2rem;
+  padding: 0 1rem;
 }
 
 .hero-content h1 {
   font-size: 2.8rem;
-  font-weight: 700;
+  font-weight: 800;
   margin-bottom: 1rem;
+  text-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
 }
 
 .hero-content p {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   margin-bottom: 2rem;
-  line-height: 1.5;
+  color: #eaeaea;
 }
 
-/* Transparent Download Buttons */
-.download-buttons {
+/* ===== HERO SECTION BUTTON FIX ===== */
+
+.download-btns {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
-.store-btn {
-  display: flex;
   align-items: center;
-  gap: 0.6rem;
-  text-decoration: none;
-  background: transparent;
-  border: 2px solid #fff;
+  gap: 1.5rem;              /* spacing between Playstore & Appstore */
+  margin-bottom: 2.5rem;    /* adds gap above the red download button */
+  flex-wrap: wrap;          /* ensures responsiveness */
+}
+
+.store-btn.dark img {
+  height: 65px;             /* equal height for both badges */
+  width: auto;
+  display: flex;
+  object-fit: contain;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+.store-btn.dark img:hover {
+  transform: scale(1.05);
+}
+
+.primary-download-btn {
+  background: var(--primary-color);
   color: #fff;
-  border-radius: 10px;
-  padding: 0.6rem 1rem;
+  padding: 0.9rem 2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
   transition: all 0.3s ease;
+  display: inline-block;
+  margin-top: 0.5rem; /* small top gap to make spacing perfect */
 }
 
-.store-btn img {
-  width: 28px;
-  height: 28px;
-}
-
-.store-btn:hover {
-  background: rgba(255, 255, 255, 0.1);
+.primary-download-btn:hover {
+  background: #b30000;
   transform: translateY(-3px);
 }
 
@@ -210,31 +183,39 @@ section[id*="hero"]::before {
    =========================== */
 
 #how-it-works {
-  background: var(--light-bg);
-  padding: 4rem 1rem;
+  background: #f8f8f8;
+  padding: 4rem 2rem;
   text-align: center;
 }
 
 #how-it-works h2 {
   font-size: 2rem;
   color: var(--primary-color);
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
+  text-align: center;
 }
 
 .how-container {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
   gap: 3rem;
   max-width: 1100px;
   margin: 0 auto;
+  flex-wrap: wrap; /* makes it responsive */
+}
+
+.how-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
 }
 
 .how-image img {
   width: 350px;
-  border-radius: 12px;
-  box-shadow: var(--shadow);
+  max-width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s ease;
 }
 
@@ -244,21 +225,33 @@ section[id*="hero"]::before {
 
 .how-steps {
   flex: 1;
-  min-width: 300px;
+  text-align: left;
 }
 
-.step {
-  background: var(--white-color);
+.how-steps .step {
+  background: #fff;
+  margin-bottom: 1.2rem;
   padding: 1.2rem;
-  border-radius: 8px;
-  box-shadow: var(--shadow);
-  margin-bottom: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
   transition: transform 0.3s ease;
 }
 
-.step:hover {
-  transform: translateY(-5px);
+.how-steps .step:hover {
+  transform: translateY(-4px);
 }
+
+.how-steps h3 {
+  color: var(--primary-color);
+  margin-bottom: 0.3rem;
+  font-size: 1.2rem;
+}
+
+.how-steps p {
+  color: #444;
+  font-size: 0.98rem;
+}
+
 
 /* ===========================
    STOCK SECTION
@@ -345,7 +338,7 @@ section[id*="hero"]::before {
 
 #partner-hero {
   position: relative;
-  height: 80vh;
+  height: 95vh;
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -439,13 +432,103 @@ section[id*="hero"]::before {
   transform: translateY(-5px);
 }
 
-#partner-docs ul {
-  list-style: none;
-  max-width: 500px;
-  margin: 0 auto;
-  text-align: left;
-  line-height: 1.8;
+#required-docs {
+  background: #f8f8f8;
+  padding: 4rem 2rem;
+  text-align: center;
 }
+
+#required-docs h2 {
+  color: var(--primary-color);
+  font-size: 2rem;
+  margin-bottom: 0.8rem;
+}
+
+#required-docs .subtext {
+  color: #555;
+  margin-bottom: 2.5rem;
+  font-size: 1rem;
+}
+
+.docs-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.8rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.doc-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.8rem 1.5rem;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.doc-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.doc-card h3 {
+  color: var(--primary-color);
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.doc-card p {
+  color: #333;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Center the last card below the others */
+.docs-container .doc-card:nth-child(5) {
+  grid-column: 1 / span 2;
+  justify-self: center;
+  max-width: 60%;
+}
+
+/* =========================================================
+   FLOATING / WIGGLE ANIMATION FOR CARDS
+   ========================================================= */
+
+@keyframes floatCard {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* Apply subtle wiggle to each card */
+.doc-card {
+  animation: floatCard 4s ease-in-out infinite;
+}
+
+/* Slight delay for alternating animation timing */
+.doc-card:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+.doc-card:nth-child(3) {
+  animation-delay: 1s;
+}
+
+.doc-card:nth-child(4) {
+  animation-delay: 1.5s;
+}
+
+.doc-card:nth-child(5) {
+  animation-delay: 2s;
+}
+
 
 /* Partner Form */
 #partner-form {
@@ -483,100 +566,6 @@ section[id*="hero"]::before {
 #partner-form button:hover {
   transform: scale(1.05);
   opacity: 0.9;
-}
-
-/* ===========================
-   FOOTER
-   =========================== */
-
-footer {
-  background: #1e1e1e;
-  color: var(--white-color);
-  text-align: center;
-  padding: 1.5rem;
-  border-top: 3px solid var(--primary-color);
-}
-
-.footer-logo {
-  height: 70px;
-  width: auto;
-  margin-bottom: 0.8rem;
-  opacity: 0.9;
-  transition: transform 0.3s ease;
-}
-
-.footer-logo:hover {
-  transform: scale(1.05);
-}
-
-/* Footer Section */
-.footer {
-  background-color: #1a1a1a;
-  color: var(--white-color);
-  padding: 3rem 8%;
-}
-
-.footer-container {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
-}
-
-.footer-column h3 {
-  color: var(--primary-color);
-  margin-bottom: 1rem;
-  font-size: 1.2rem;
-}
-
-.footer-column ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.footer-column ul li {
-  margin-bottom: 0.5rem;
-}
-
-.footer-column ul li a {
-  color: #ccc;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.footer-column ul li a:hover {
-  color: var(--white-color);
-}
-.social-icons {
-      display: flex;
-      gap: 15px;
-    }
-
-    .social-icons a img {
-      width: 30px;
-      height: 30px;
-      filter: invert(100%);
-      transition: 0.3s;
-    }
-
-    .social-icons a img:hover {
-      filter: invert(40%) sepia(100%) saturate(500%) hue-rotate(330deg);
-    }
-
-    .footer-bottom {
-      width: 100%;
-      text-align: center;
-      margin-top: 40px;
-      font-size: 0.9rem;
-      color: #ccc;
-}
-   .footer-bottom {
-     text-align: center;
-     border-top: 1px solid #333;
-      margin-top: 2rem;
-      padding-top: 1rem;
-      font-size: 0.9rem;
-      color: #999;
 }
 
 /* ===========================
@@ -785,78 +774,195 @@ footer {
 .privacy-container a:hover {
   text-decoration: underline;
 }
+
 /* ===========================
-   APP PREVIEW SECTION
+   APP MOCKUP SECTION
    =========================== */
 
-#app-preview {
-  background: var(--light-bg);
-  padding: 5rem 1rem;
-  text-align: center;
+#app-mockup {
+  background: #f8f8f8;
+  padding: 5rem 2rem;
 }
 
-.app-preview-container {
+.mockup-container {
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
-  flex-wrap: wrap-reverse;
-  gap: 2rem;
-  max-width: 1100px;
-  margin: 0 auto;
+  justify-content: space-between;
+  gap: 3rem;
+  flex-wrap: wrap;
 }
 
-.app-preview-text {
+.mockup-text {
   flex: 1;
-  min-width: 300px;
   text-align: left;
 }
 
-.app-preview-text h2 {
+.mockup-text h2 {
+  font-size: 2.2rem;
   color: var(--primary-color);
-  font-size: 2rem;
   margin-bottom: 1rem;
 }
 
-.app-preview-text p {
-  font-size: 1.1rem;
-  margin-bottom: 1.5rem;
+.mockup-text p {
+  font-size: 1rem;
+  color: #444;
+  margin-bottom: 2rem;
   line-height: 1.6;
+  max-width: 500px;
 }
 
-.app-preview-image {
+/* Reuse the same red download button style */
+.primary-download-btn {
+  background: var(--primary-color);
+  color: #fff;
+  padding: 0.9rem 2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.primary-download-btn:hover {
+  background: #b30000;
+  transform: translateY(-3px);
+}
+
+.mockup-image {
   flex: 1;
-  min-width: 280px;
   display: flex;
   justify-content: center;
 }
 
-.app-mockup-img {
-  width: 280px;
+.mockup-image img {
+  width: 350px;
   max-width: 100%;
-  border-radius: 25px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-  animation: float 4s ease-in-out infinite;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  transition: transform 0.4s ease;
 }
 
-/* Float animation for subtle motion */
-@keyframes float {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-  100% { transform: translateY(0); }
+.mockup-image img:hover {
+  transform: scale(1.05);
 }
 
-/* Mobile responsive layout */
+/* Responsive Design */
 @media (max-width: 768px) {
-  .app-preview-container {
+  .mockup-container {
     flex-direction: column-reverse;
     text-align: center;
   }
 
-  .app-preview-text {
+  .mockup-text {
     text-align: center;
   }
 
-  .app-mockup-img {
-    width: 240px;
+  .mockup-image img {
+    width: 280px;
+    margin-bottom: 2rem;
   }
 }
+
+
+/* ===========================
+   FOOTER STYLES
+   =========================== */
+
+#footer {
+  background: #121212;
+  color: #ddd;
+  padding: 3rem 1rem 2rem;
+  text-align: center;
+}
+
+.footer-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.footer-columns {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #333;
+  padding-bottom: 2rem;
+}
+
+.footer-col {
+  flex: 1;
+  min-width: 180px;
+  margin: 0.5rem;
+}
+
+.footer-col h4 {
+  color: #e63946; /* your primary red */
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-col ul li {
+  margin: 0.4rem 0;
+}
+
+.footer-col ul li a {
+  color: #bbb;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.3s;
+}
+
+.footer-col ul li a:hover {
+  color: #fff;
+}
+
+.footer-logo-section {
+  margin: 2rem 0 1rem;
+}
+
+.footer-logo {
+  width: 100px;
+  filter: brightness(100%);
+}
+
+.footer-socials {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.footer-socials img {
+  width: 28px;
+  height: 28px;
+  filter: brightness(90%);
+  transition: all 0.3s ease;
+}
+
+.footer-socials img:hover {
+  filter: brightness(150%);
+  transform: scale(1.1);
+}
+
+.footer-copy {
+  color: #aaa;
+  font-size: 0.9rem;
+}
+
+.footer-copy a {
+  color: #e63946;
+  text-decoration: none;
+  margin: 0 0.3rem;
+}
+
+.footer-copy a:hover {
+  text-decoration: underline;
+}
+

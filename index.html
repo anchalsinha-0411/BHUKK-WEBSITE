@@ -8,65 +8,76 @@ gi<!DOCTYPE html>
   <link rel="stylesheet" href="assets/css/responsive.css"/>
 </head>
 <body>
+
   <!-- NAVBAR -->
-  <nav class="glass-nav">
-    <div class="logo">
-      <a href="index.html" class="logo-link">
-        <img src="assets/images/logo.png" alt="BHUKK Logo" />
-        <span class="logo-text">BHUKK</span>
-      </a>
-    </div>
+<nav class="glass-nav">
+  <div class="logo">
+    <a href="index.html" class="logo-link">
+      <img src="assets/images/logo.png" alt="BHUKK Logo" />
+      <span class="logo-text">BHUKK</span>
+    </a>
+  </div>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="#how-it-works">How It Works</a></li>
+    <li><a href="partners.html">For Partners</a></li>
+    <li><a href="about.html">About Us</a></li>
+  </ul>
+</nav>
 
-    <ul class="nav-links">
-      <li><a href="#hero">Home</a></li>
-      <li><a href="#how-it-works">How It Works</a></li>
-      <li><a href="partners.html">For Partners</a></li>
-      <li><a href="about.html">About Us</a></li>
-    </ul>
-  </nav>
-
-
-  <!-- HERO SECTION WITH VIDEO -->
+<!-- HERO SECTION -->
 <section id="hero">
   <video autoplay muted loop playsinline class="hero-video">
     <source src="assets/videos/hero-banner.mp4" type="video/mp4">
   </video>
-  <div class="overlay"></div>
 
-  <div class="hero-content">
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content fade-in">
     <h1>Kolkata’s #1 Liquor Delivery App</h1>
     <p>Order premium liquors from the best shops near you — fast, safe, and verified.</p>
 
-    <div class="download-buttons">
-      <a href="#" class="store-btn playstore">
-        <img src="assets/images/playstore-icon.png" alt="Play Store" />
-        <span>Get it on <strong>Google Play</strong></span>
+  <!-- store buttons -->
+    <div class="download-btns">
+      <a href="#" class="store-btn dark">
+        <img src="assets/images/playstore.png" alt="Get it on Google Play" />
       </a>
-      <a href="#" class="store-btn appstore">
-        <img src="assets/images/apple-icon.png" alt="App Store" />
-        <span>Download on the <strong>App Store</strong></span>
+      <a href="#" class="store-btn dark">
+        <img src="assets/images/appstore.png" alt="Download on the App Store" />
       </a>
     </div>
+
+    <a href="#" class="primary-download-btn">Download BHUKK App</a>
   </div>
 </section>
 
-
   
- <!-- HOW IT WORKS -->
-  <section id="how-it-works">
-    <h2>How It Works</h2>
-    <div class="how-container">
-      <div class="how-image">
-       <img src="assets/images/how-it-works.png" alt="App demo" />
+<!-- HOW IT WORKS SECTION -->
+<section id="how-it-works">
+  <h2>How It Works</h2>
+  <div class="how-container">
+    <div class="how-image">
+      <img src="assets/images/how-it-works.png" alt="BHUKK App Working" />
+    </div>
+
+    <div class="how-steps">
+      <div class="step">
+        <h3>1️⃣ Verify Age</h3>
+        <p>Quick Aadhaar/PAN verification to ensure legal compliance.</p>
+      </div>
+
+      <div class="step">
+        <h3>2️⃣ Browse & Select</h3>
+        <p>Explore our premium liquor collection from trusted stores.</p>
+      </div>
+
+      <div class="step">
+        <h3>3️⃣ Pay & Track</h3>
+        <p>Make secure payments and track your order in real-time.</p>
       </div>
     </div>
-      <div class="how-steps">
-        <div class="step"><h3>1️⃣ Verify Age</h3><p>Quick Aadhaar/PAN verification.</p></div>
-        <div class="step"><h3>2️⃣ Browse & Select</h3><p>Explore our premium liquor options.</p></div>
-        <div class="step"><h3>3️⃣ Pay & Track</h3><p>Secure payment and real-time tracking.</p></div>
-      </div>
-    </div>
-  </section>
+  </div>
+</section>
 
   <!-- STOCK SECTION -->
   <section id="stock">
@@ -78,79 +89,86 @@ gi<!DOCTYPE html>
     </div>
     <a href="explore.html" class="explore-btn">+ Show More</a>
 
-
-  <!-- APP MOCKUP SECTION -->
-<section id="app-preview">
-  <div class="app-preview-container">
-    <div class="app-preview-text">
+<!-- APP MOCKUP SECTION -->
+<section id="app-mockup">
+  <div class="mockup-container">
+    <div class="mockup-text">
       <h2>DOWNLOAD &</h2>
-      <h3>Experience BHUKK on Your Phone</h3>
-      <p>Fast, simple, and secure liquor delivery — all from the comfort of your home.</p>
-      <p>A online liquor delivering app.</p>
-      <p>Cheer's Delivered To You.</p>
+      <h3>Get the BHUKK App</h3>
+      <h4><i>Cheer's Delivered To You</i></h4>
+      <p>
+        Experience seamless liquor delivery at your fingertips. Track your order, browse top brands, and enjoy lightning-fast delivery — all within one app.
+      </p>
+      <a href="#" class="primary-download-btn">Download BHUKK App</a>
     </div>
 
-    <div class="app-preview-image">
-      <img src="assets/images/app-mockup.png" alt="BHUKK App Mockup" class="app-mockup-img" />
+    <div class="mockup-image">
+      <img src="assets/images/app-mockup.png" alt="BHUKK App Mockup" />
     </div>
   </div>
 </section>
 
 
-  <!-- FOOTER -->
-  <footer>
-    <footer class="footer">
- <footer class="footer">
+<!-- FOOTER -->
+<footer id="footer">
   <div class="footer-container">
-    <div class="footer-column">
-      <h3>Bhukk</h3>
-      <ul>
-        <li><a href="#">Parent Company</a></li>
-        <li><a href="#">Districts</a></li>
-        <li><a href="#">Investors</a></li>
-      </ul>
-    </div>
+    
+    <div class="footer-columns">
+      <div class="footer-col">
+        <h4>Bhukk</h4>
+        <ul>
+          <li><a href="#">Parent Company</a></li>
+          <li><a href="#">Districts</a></li>
+          <li><a href="#">Investors</a></li>
+        </ul>
+      </div>
 
-    <div class="footer-column">
-      <h3>For Customers</h3>
-      <ul>
-        <li><a href="#">Partner With Us</a></li>
-        <li><a href="#">Apps For You</a></li>
-      </ul>
-    </div>
+      <div class="footer-col">
+        <h4>For Customers</h4>
+        <ul>
+          <li><a href="#">Partner With Us</a></li>
+          <li><a href="#">Apps For You</a></li>
+        </ul>
+      </div>
 
-    <div class="footer-column">
-      <h3>For Delivery Partners</h3>
-      <ul>
-        <li><a href="#">Partner With Us</a></li>
-        <li><a href="#">Apps For You</a></li>
-      </ul>
-    </div>
+      <div class="footer-col">
+        <h4>For Delivery Partners</h4>
+        <ul>
+          <li><a href="#">Partner With Us</a></li>
+          <li><a href="#">Apps For You</a></li>
+        </ul>
+      </div>
 
-    <div class="footer-column">
-      <h3>Learn More</h3>
-      <ul>
-        <li><a href="privacy.html">Privacy</a></li>
-        <li><a href="#">Security</a></li>
-        <li><a href="terms.html">Terms of Services</a></li>
-        <li><a href="#">Help & Support</a></li>
-        <li><a href="#">Report a Fraud</a></li>
-      </ul>
-    </div>
-  </div>
-    <img src="assets/images/logo.png" alt="BHUKK Logo" class="footer-logo" />
-
-  <div class="footer-column">
-      <h4>Social Links</h4>
-      <div class="social-icons">
-        <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn"></a>
-        <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook"></a>
-        <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram"></a>
-        <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733646.png" alt="YouTube"></a>
+      <div class="footer-col">
+        <h4>Learn More</h4>
+        <ul>
+          <li><a href="privacy.html">Privacy</a></li>
+          <li><a href="#">Security</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Help & Support</a></li>
+          <li><a href="#">Report a Fraud</a></li>
+        </ul>
       </div>
     </div>
-    <p>© 2025 BHUKK. All Rights Reserved. | <a href="#">Terms</a> | <a href="#">Privacy</a></p>
-  </footer>
+
+    <div class="footer-logo-section">
+      <img src="assets/images/logo.png" alt="BHUKK Logo" class="footer-logo" />
+    </div>
+
+    <div class="footer-socials">
+      <a href="#"><img src="assets/images/linkedin.png" alt="LinkedIn" /></a>
+      <a href="#"><img src="assets/images/facebook.jpg" alt="Facebook" /></a>
+      <a href="#"><img src="assets/images/instagram.png" alt="Instagram" /></a>
+      <a href="#"><img src="assets/images/youtube.png" alt="YouTube" /></a>
+    </div>
+
+    <p class="footer-copy">
+      © 2025 BHUKK. All Rights Reserved. |
+      <a href="terms.html">Terms</a> |
+      <a href="privacy.html">Privacy</a>
+    </p>
+  </div>
+</footer>
 
   <script src="assets/js/main.js"></script>
   <script src="assets/js/animation.js"></script>
