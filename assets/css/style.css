@@ -252,6 +252,297 @@ html, body {
   font-size: 0.98rem;
 }
 
+/* ==============================
+   HOW IT WORKS PAGE STYLING
+   ============================== */
+
+.how-hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle at top, rgba(20,20,20,0.9), rgba(10,10,10,1));
+  padding: 4rem 0;
+}
+
+.mockup-container {
+  animation: float 3s ease-in-out infinite;
+}
+
+.mockup-img {
+  max-width: 280px;
+  width: 80%;
+  filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.4));
+}
+
+/* Simple wiggle motion */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.how-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 3rem 1rem;
+  color: #f1f1f1;
+}
+
+.how-details .how-image img {
+  max-width: 500px;
+  width: 90%;
+  margin-bottom: 2rem;
+}
+
+.how-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 600px;
+}
+
+.how-steps .step {
+  background: rgba(40, 40, 40, 0.6);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.how-steps .step h3 {
+  color: #e63946;
+  margin-bottom: 0.5rem;
+}
+
+.primary-btn {
+  background: #e63946;
+  color: #fff;
+  padding: 0.8rem 1.5rem;
+  border-radius: 25px;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.primary-btn:hover {
+  background: #ff4757;
+}
+/* ==============================
+   HOW IT WORKS PREVIEW SECTION
+   ============================== */
+.how-preview {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: #ffffff;
+  color: #111;
+}
+
+.how-preview h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #b11226; /* red brand color */
+  margin-bottom: 1rem;
+}
+
+.how-preview p {
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 2rem;
+}
+
+/* "Learn More" Button */
+.learn-btn {
+  background: #e63946;
+  color: #fff;
+  padding: 0.8rem 1.5rem;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.learn-btn:hover {
+  background: #ff4757;
+  transform: translateY(-3px);
+}
+
+/* Remove weird spacing between sections */
+section {
+  margin: 0;
+  padding: 0;
+}
+/* ==============================
+   PREMIUM DOWNLOAD SECTION (FINAL)
+   ============================== */
+.download-section {
+  background: linear-gradient(180deg, #0d0d0d 0%, #1a1a1a 100%);
+  color: #fff;
+  padding: 6rem 2rem;
+}
+
+.download-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5rem;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* LEFT SIDE: App Mockup */
+.download-left {
+  flex: 1 1 45%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mockup-img {
+  width: 420px;
+  max-width: 90%;
+  border-radius: 20px;
+  filter: drop-shadow(0 12px 25px rgba(0, 0, 0, 0.6));
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Floating animation for mockup */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* RIGHT SIDE: Text + Buttons */
+.download-right {
+  flex: 1 1 45%;
+  text-align: left;
+}
+
+.download-right h2 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #e63946;
+  margin-bottom: 1.2rem;
+}
+
+.download-right p {
+  font-size: 1.1rem;
+  color: #dcdcdc;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+/* Buttons */
+.download-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.store-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.9rem 1.4rem;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.store-btn img {
+  width: 30px;
+  height: auto;
+}
+
+.store-btn span {
+  font-size: 0.95rem;
+  color: #fff;
+}
+
+.store-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-3px);
+}
+
+/* Responsive tweaks */
+@media (max-width: 900px) {
+  .download-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .download-right {
+    text-align: center;
+  }
+
+  .mockup-img {
+    width: 300px;
+  }
+
+  .download-buttons {
+    justify-content: center;
+  }
+}
+.how-it-works {
+  padding: 60px 10%;
+  background-color: #fff;
+}
+
+.how-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.how-image img {
+  max-width: 450px;
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.how-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.step {
+  background-color: #555;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.step h3 {
+  color: #ff4d4d;
+  margin-bottom: 8px;
+  font-size: 1.2rem;
+}
+
+.step-number {
+  margin-right: 8px;
+}
+
+@media (max-width: 768px) {
+  .how-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .how-text {
+    width: 100%;
+  }
+
+  .how-image img {
+    max-width: 90%;
+  }
+}
+
 
 /* ===========================
    STOCK SECTION
